@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Via Fácil - Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #d1e9f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: sans-serif;
+    }
+
+    .box {
+      background: rgb(255, 255, 255);
+      padding: 20px;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 360px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .logo {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 10px;
+    }
+
+    .logo img {
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
+    }
+
+    h1 {
+      color: #27348b;
+      margin-bottom: 20px;
+    }
+
+    button, input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 20px;
+      border: none;
+      font-size: 14px;
+    }
+
+    .google, .facebook {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .google {
+      border: 1px solid #ccc;
+      background: white;
+    }
+
+    .facebook {
+      background:#34508c;
+      color: white;
+    }
+
+    .google img, .facebook img {
+      height: 20px;
+      width: 20px;
+    }
+
+    input {
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    #btn-login {
+      background: #00a6e2;
+      color: white;
+      border-radius: 30px;
+      font-weight: bold;
+    }
+
+    .or {
+      text-align: center;
+      margin: 10px 0;
+      color: #888;
+      font-size: 14px;
+    }
+
+    .forgot {
+      text-align: center;
+      font-size: 12px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="logo">
+      <img src="assets/via.png" alt="Logo Via Fácil">
+    </div>
+    <button class="google">
+      <img src="assets/google.png" alt="Google">
+      Entrar com Google
+    </button>
+    <button class="facebook">
+      <img src="assets/facebook.jpeg" alt="Facebook">
+      Entrar com Facebook?
+    </button>
+    <div class="or">ou</div>
+    <input type="text" placeholder="Nome de usuário">
+    <input type="password" placeholder="Senha">
+    <button id="btn-login">Login</button>
+    <div class="forgot">Esqueceu senha ou nome de usuário?</div>
+  </div>
+
+  <script>
+    document.getElementById('btn-login').onclick = () => {
+      window.location.href = 'home.html';
+    };
+  </script>
+</body>
+</html>
