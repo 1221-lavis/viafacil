@@ -2,108 +2,230 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Rotas de Ônibus - Via Fácil</title>
+  <title>Via Fácil - Rotas de Metrô</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fontes e ícones -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Roboto', sans-serif;
-      background: #f0f4f8;
-      margin: 0;
-      padding: 0;
+      background: #e6f0f5;
       color: #333;
     }
+
+    /* Cabeçalho */
     header {
-      background-color: #00a6e2;
+      background: #00a6e2;
       color: white;
-      padding: 16px;
+      padding: 14px;
       display: flex;
       align-items: center;
+      justify-content: center;
+      position: relative;
     }
-    header .back-button {
-      margin-right: 12px;
-      cursor: pointer;
+    header h2 {
       font-size: 20px;
+      font-weight: 500;
     }
-    header h1 {
-      flex: 1;
-      text-align: center;
-      font-size: 24px;
+    .back-icon {
+      position: absolute;
+      left: 16px;
+      font-size: 20px;
+      cursor: pointer;
     }
-    main {
-      padding: 16px;
+
+    /* Seleção de origem/destino */
+    .selects {
+      margin: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
     select {
       width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    /* Subtítulo */
+    .subtitle {
+      margin: 0 16px;
+      font-size: 15px;
+      font-weight: 500;
+      color: #444;
+    }
+
+    /* Cartões das estações */
+    .station-card {
+      background: #fff;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      margin: 12px 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+    }
+
+    .station-img {
+      width: 120px;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .station-info {
       padding: 12px;
-      margin-bottom: 16px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
+      flex: 1;
     }
-    .rota {
-      background: white;
-      padding: 16px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      margin-bottom: 16px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+    .station-title {
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 6px;
     }
-    .rota h3 {
-      margin-bottom: 8px;
+
+    .station-detail {
+      font-size: 13px;
+      margin: 3px 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .station-detail i {
+      color: #333;
+      width: 16px;
+      text-align: center;
+    }
+
+    .accessibility {
+      display: flex;
+      gap: 8px;
+      margin-top: 6px;
+      font-size: 16px;
+    }
+
+    .station-description {
+      font-size: 13px;
+      margin-top: 8px;
+      color: #555;
     }
   </style>
 </head>
 <body>
+   
+  <!-- Cabeçalho -->
   <header>
-    <div class="back-button" onclick="window.history.back()">
+    <div class="back-icon" onclick="window.history.back()">
       <i class="fas fa-arrow-left"></i>
     </div>
-    <h1>Rotas de Ônibus</h1>
+    <h2>Via Fácil</h2>
   </header>
-  <main>
-    <label for="deficiencia">Selecione sua deficiência:</label>
-    <select id="deficiencia" onchange="filtrarRotas()">
-      <option value="todas">Todas</option>
-      <option value="visual">Visual</option>
-      <option value="auditiva">Auditiva</option>
-      <option value="motora">Motora</option>
-      <option value="intelectual">Intelectual</option>
-    </select>
 
-    <div id="rotas">
-      <div class="rota" data-deficiencia="visual motora">
-        <h3>Linha 775P-10 - Lapa ↔ Metrô Vila Madalena</h3>
-        <p>Adaptado com elevador e sistema de voz.</p>
-      </div>
-      <div class="rota" data-deficiencia="auditiva intelectual">
-        <h3>Linha 875A-10 - Pompéia ↔ Terminal Pinheiros</h3>
-        <p>Com letreiros visuais e equipe treinada.</p>
-      </div>
-      <div class="rota" data-deficiencia="motora">
-        <h3>Linha 509J-10 - Jabaquara ↔ Terminal Bandeira</h3>
-        <p>Ônibus com plataforma elevatória.</p>
-      </div>
-      <div class="rota" data-deficiencia="visual auditiva">
-        <h3>Linha 669A-10 - Sacomã ↔ Terminal Santo Amaro</h3>
-        <p>Equipado com sistemas sonoros e visuais.</p>
+  <!-- Origem e destino -->
+  <div class="selects">
+    <select id="origem">
+      <option value="">Origem</option>
+      <option value="tiete">Terminal Tietê</option>
+      <option value="sao-mateus">Terminal São Mateus</option>
+      <option value="princesa-isabel">Terminal Princesa Isabel</option>
+    </select>
+    <select id="destino">
+      <option value="">Destino</option>
+      <option value="tiete">Terminal Tietê</option>
+      <option value="sao-mateus">Terminal São Mateus</option>
+      <option value="princesa-isabel">Terminal Princesa Isabel</option>
+    </select>
+  </div>
+
+  <div class="subtitle">Rotas de Ônibus disponíveis:</div>
+
+  <!-- Lista de terminais -->
+  <div id="stations">
+    <!-- Terminal Tietê -->
+    <div class="station-card" data-name="tiete">
+      <img class="station-img" src="Captura de tela 2025-09-29 163034.png" alt="Mapa Terminal Tietê">
+      <div class="station-info">
+        <div class="station-title">Terminal Rodoviário Tietê</div>
+        <div class="station-detail"><i class="far fa-clock"></i> 06h00 às 22h00</div>
+        <div class="station-detail"><i class="fas fa-calendar-day"></i> Todos os dias</div>
+        <div class="station-detail"><i class="fas fa-map-marker-alt"></i> Avenida Cruzeiro do Sul</div>
+        <div class="accessibility">
+          <i class="fas fa-wheelchair"></i>
+          <i class="fas fa-elevator"></i>
+        </div>
+        <div class="station-description">
+          Elevador de uso preferencial para deficiência e mobilidade reduzida.
+        </div>
       </div>
     </div>
-  </main>
-  <script>
-    function filtrarRotas() {
-      const select = document.getElementById('deficiencia');
-      const filtro = select.value;
-      const rotas = document.querySelectorAll('.rota');
 
-      rotas.forEach(ro => {
-        if (filtro === 'todas' || ro.dataset.deficiencia.includes(filtro)) {
-          ro.style.display = 'block';
+    <!-- Terminal São Mateus -->
+    <div class="station-card" data-name="sao-mateus">
+      <img class="station-img" src="Captura de tela 2025-09-29 163539.png" alt="Mapa Terminal São Mateus">
+      <div class="station-info">
+        <div class="station-title">Terminal São Mateus</div>
+        <div class="station-detail"><i class="far fa-clock"></i> 04h30 às 23h30</div>
+        <div class="station-detail"><i class="fas fa-calendar-day"></i> Todos os dias</div>
+        <div class="station-detail"><i class="fas fa-map-marker-alt"></i> Rua Guilherme Kantor</div>
+        <div class="accessibility">
+          <i class="fas fa-wheelchair"></i>
+          <i class="fas fa-elevator"></i>
+        </div>
+        <div class="station-description">
+          Elevador de uso preferencial para deficiência e mobilidade reduzida.
+        </div>
+      </div>
+    </div>
+
+    <!-- Terminal Princesa Isabel -->
+    <div class="station-card" data-name="princesa-isabel">
+      <img class="station-img" src="Captura de tela 2025-09-29 163715.png" alt="Mapa Terminal Princesa Isabel">
+      <div class="station-info">
+        <div class="station-title">Terminal Princesa Isabel</div>
+        <div class="station-detail"><i class="far fa-clock"></i> 05h10 às 00h50</div>
+        <div class="station-detail"><i class="fas fa-calendar-day"></i> Todos os dias</div>
+        <div class="station-detail"><i class="fas fa-map-marker-alt"></i> Alameda Glete, 433</div>
+        <div class="accessibility">
+          <i class="fas fa-wheelchair"></i>
+          <i class="fas fa-elevator"></i>
+        </div>
+        <div class="station-description">
+          Elevador de uso preferencial para deficiência e mobilidade reduzida.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script para filtro -->
+  <script>
+    const origemSelect = document.getElementById("origem");
+    const destinoSelect = document.getElementById("destino");
+    const stations = document.querySelectorAll(".station-card");
+
+    function filtrarRotas() {
+      const origem = origemSelect.value;
+      const destino = destinoSelect.value;
+
+      stations.forEach(station => {
+        const name = station.getAttribute("data-name");
+
+        if ((!origem && !destino) || name === origem || name === destino) {
+          station.style.display = "block";
         } else {
-          ro.style.display = 'none';
+          station.style.display = "none";
         }
       });
     }
+
+    origemSelect.addEventListener("change", filtrarRotas);
+    destinoSelect.addEventListener("change", filtrarRotas);
   </script>
 </body>
 </html>

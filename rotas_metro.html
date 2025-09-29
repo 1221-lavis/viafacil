@@ -2,145 +2,231 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Rotas de Metrô - Via Fácil</title>
+  <title>Via Fácil - Rotas de Metrô</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <!-- Fontes e ícones -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
 
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Roboto', sans-serif;
-      background: #f0f4f8;
+      background: #e6f0f5;
       color: #333;
     }
 
+    /* Cabeçalho */
     header {
       background: #00a6e2;
       color: white;
-      padding: 16px;
+      padding: 14px;
       display: flex;
       align-items: center;
-      border-bottom: 2px solid #0091c5;
+      justify-content: center;
+      position: relative;
     }
-
+    header h2 {
+      font-size: 20px;
+      font-weight: 500;
+    }
     .back-icon {
+      position: absolute;
+      left: 16px;
       font-size: 20px;
       cursor: pointer;
-      margin-right: 12px;
     }
 
-    header h2 {
+    /* Seleção de origem/destino */
+    .selects {
+      margin: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    /* Subtítulo */
+    .subtitle {
+      margin: 0 16px;
+      font-size: 15px;
+      font-weight: 500;
+      color: #444;
+    }
+
+    /* Cartões das estações */
+    .station-card {
+      background: #fff;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      margin: 12px 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+    }
+
+    .station-img {
+      width: 120px;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .station-info {
+      padding: 12px;
       flex: 1;
-      font-size: 24px;
+    }
+
+    .station-title {
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+
+    .station-detail {
+      font-size: 13px;
+      margin: 3px 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .station-detail i {
+      color: #333;
+      width: 16px;
       text-align: center;
     }
 
-    .container {
-      padding: 16px;
-    }
-
-    select {
-      width: 100%;
-      padding: 12px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
+    .accessibility {
+      display: flex;
+      gap: 8px;
+      margin-top: 6px;
       font-size: 16px;
-      margin-bottom: 20px;
     }
 
-    .rota {
-      background: white;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      padding: 16px;
-      margin-bottom: 16px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-
-    .rota h4 {
-      margin-bottom: 8px;
-      color: #00a6e2;
-    }
-
-    .rota p {
-      margin: 4px 0;
+    .station-description {
+      font-size: 13px;
+      margin-top: 8px;
+      color: #555;
     }
   </style>
 </head>
 <body>
+  <!-- Cabeçalho -->
   <header>
-    <div class="back-icon" onclick="window.location.href='home.html'">
+    <div class="back-icon" onclick="window.history.back()">
       <i class="fas fa-arrow-left"></i>
     </div>
-    <h2>Rotas de Metrô</h2>
+    <h2>Via Fácil</h2>
   </header>
 
-  <div class="container">
-    <label for="deficiencia">Selecione sua deficiência:</label>
-    <select id="deficiencia" onchange="mostrarRotas()">
-      <option value="">-- Escolha uma opção --</option>
-      <option value="fisica">Deficiência Física</option>
-      <option value="visual">Deficiência Visual</option>
-      <option value="auditiva">Deficiência Auditiva</option>
+  <!-- Origem e destino -->
+  <div class="selects">
+    <select id="origem">
+      <option value="">Origem</option>
+      <option value="sé">Estação Sé</option>
+      <option value="paraiso">Estação Paraíso</option>
+      <option value="bras">Estação Brás</option>
     </select>
+    <select id="destino">
+      <option value="">Destino</option>
+      <option value="sé">Estação Sé</option>
+      <option value="paraiso">Estação Paraíso</option>
+      <option value="bras">Estação Brás</option>
+    </select>
+  </div>
 
-    <div id="rotas"></div>
+  <div class="subtitle">Rotas de Metrô disponíveis:</div>
+
+  <!-- Lista de estações -->
+  <div id="stations">
+    <!-- Cartão Estação Sé -->
+    <div class="station-card" data-name="sé">
+      <img class="station-img" src="IMG 1.png" alt="Mapa Estação Sé">
+      <div class="station-info">
+        <div class="station-title">Estação Sé</div>
+        <div class="station-detail"><i class="far fa-clock"></i> 04h40 a 00h00</div>
+        <div class="station-detail"><i class="fas fa-calendar-day"></i> Todos os dias</div>
+        <div class="station-detail"><i class="fas fa-map-marker-alt"></i> Praça da Sé, S/N°</div>
+        <div class="accessibility">
+          <i class="fas fa-wheelchair"></i>
+          <i class="fas fa-elevator"></i>
+          <i class="fas fa-person-walking"></i>
+        </div>
+        <div class="station-description">
+          Elevador de uso preferencial para deficiência e mobilidade reduzida.
+        </div>
+      </div>
+    </div>
+
+    <!-- Cartão Estação Paraíso -->
+    <div class="station-card" data-name="paraiso">
+      <img class="station-img" src="IMG 2.png"alt="Mapa Estação Paraíso">
+      <div class="station-info">
+        <div class="station-title">Estação Paraíso</div>
+        <div class="station-detail"><i class="far fa-clock"></i> 04h40 a 00h00</div>
+        <div class="station-detail"><i class="fas fa-calendar-day"></i> Todos os dias</div>
+        <div class="station-detail"><i class="fas fa-map-marker-alt"></i> Rua Vergueiro, 1456</div>
+        <div class="accessibility">
+          <i class="fas fa-wheelchair"></i>
+          <i class="fas fa-elevator"></i>
+          <i class="fas fa-person-walking"></i>
+        </div>
+        <div class="station-description">
+          Elevador de uso preferencial para deficiência e mobilidade reduzida.
+        </div>
+      </div>
+    </div>
+
+    <!-- Cartão Estação Brás -->
+    <div class="station-card" data-name="bras">
+      <img class="station-img" src="IMG 3.png" alt="Mapa Estação Brás">
+      <div class="station-info">
+        <div class="station-title">Estação Brás</div>
+        <div class="station-detail"><i class="far fa-clock"></i> 04h40 a 00h00</div>
+        <div class="station-detail"><i class="fas fa-calendar-day"></i> Todos os dias</div>
+        <div class="station-detail"><i class="fas fa-map-marker-alt"></i> Rua Domingos Paiva</div>
+        <div class="accessibility">
+          <i class="fas fa-wheelchair"></i>
+          <i class="fas fa-elevator"></i>
+          <i class="fas fa-person-walking"></i>
+        </div>
+        <div class="station-description">
+          Elevador de uso preferencial para deficiência e mobilidade reduzida.
+        </div>
+      </div>
+    </div>
   </div>
 
   <script>
-    const rotas = {
-      fisica: [
-        {
-          linha: "Linha 1 - Azul",
-          descricao: "Estações com elevadores e rampas: Jabaquara, Paraíso, Sé, Tucuruvi"
-        },
-        {
-          linha: "Linha 3 - Vermelha",
-          descricao: "Plataformas niveladas e cadeiras de rodas disponíveis"
-        }
-      ],
-      visual: [
-        {
-          linha: "Linha 2 - Verde",
-          descricao: "Pisos táteis e sinalização em Braille nas estações Consolação, Clínicas e Vila Madalena"
-        },
-        {
-          linha: "Linha 5 - Lilás",
-          descricao: "Avisos sonoros nas plataformas e trens"
-        }
-      ],
-      auditiva: [
-        {
-          linha: "Linha 4 - Amarela",
-          descricao: "Painéis visuais informando chegada e partida dos trens"
-        },
-        {
-          linha: "Linha 15 - Prata (Monotrilho)",
-          descricao: "Telões com indicações visuais e monitores com legendas"
-        }
-      ]
-    };
+    const origemSelect = document.getElementById("origem");
+    const destinoSelect = document.getElementById("destino");
+    const stations = document.querySelectorAll(".station-card");
 
-    function mostrarRotas() {
-      const tipo = document.getElementById('deficiencia').value;
-      const container = document.getElementById('rotas');
-      container.innerHTML = '';
+    function filtrarRotas() {
+      const origem = origemSelect.value;
+      const destino = destinoSelect.value;
 
-      if (rotas[tipo]) {
-        rotas[tipo].forEach(r => {
-          const div = document.createElement('div');
-          div.className = 'rota';
-          div.innerHTML = `<h4>${r.linha}</h4><p>${r.descricao}</p>`;
-          container.appendChild(div);
-        });
-      }
+      stations.forEach(station => {
+        const name = station.getAttribute("data-name");
+
+        if ((!origem && !destino) || name === origem || name === destino) {
+          station.style.display = "flex";
+        } else {
+          station.style.display = "none";
+        }
+      });
     }
+
+    origemSelect.addEventListener("change", filtrarRotas);
+    destinoSelect.addEventListener("change", filtrarRotas);
   </script>
 </body>
 </html>
