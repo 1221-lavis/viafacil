@@ -4,8 +4,6 @@
   <meta charset="UTF-8">
   <title>Via Fácil - Rotas de Metrô</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Fontes e ícones -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
@@ -17,7 +15,6 @@
       color: #333;
     }
 
-    /* Cabeçalho */
     header {
       background: #00a6e2;
       color: white;
@@ -38,7 +35,6 @@
       cursor: pointer;
     }
 
-    /* Seleção de origem/destino */
     .selects {
       margin: 16px;
       display: flex;
@@ -54,7 +50,6 @@
       font-family: 'Roboto', sans-serif;
     }
 
-    /* Subtítulo */
     .subtitle {
       margin: 0 16px;
       font-size: 15px;
@@ -62,7 +57,7 @@
       color: #444;
     }
 
-    /* Cartões das estações */
+    /* Cartões de Cidades e Estações */
     .station-card {
       background: #fff;
       border-radius: 10px;
@@ -131,15 +126,42 @@
   <div class="selects">
     <select id="origem">
       <option value="">Origem</option>
-      <option value="sé">Estação Sé</option>
-      <option value="paraiso">Estação Paraíso</option>
-      <option value="bras">Estação Brás</option>
+      <!-- Lista de todas as linhas de metrô e trem -->
+      <option value="linhas_metro">Linhas de Metrô</option>
+      <option value="linha_1">Linha 1 - Azul</option>
+      <option value="linha_2">Linha 2 - Verde</option>
+      <option value="linha_3">Linha 3 - Vermelha</option>
+      <option value="linha_4">Linha 4 - Amarela</option>
+      <option value="linha_5">Linha 5 - Lilás</option>
+      <option value="linha_15">Linha 15 - Prata</option>
+      <option value="linha_17">Linha 17 - Ouro</option>
+      <option value="linha_11">Linha 11 - Coral (CPTM)</option>
+      <option value="linha_12">Linha 12 - Safira (CPTM)</option>
+      <option value="linha_13">Linha 13 - Jade (CPTM)</option>
+      <option value="linha_7">Linha 7 - Rubi (CPTM)</option>
+      <option value="linha_8">Linha 8 - Diamante (CPTM)</option>
+      <option value="linha_9">Linha 9 - Esmeralda (CPTM)</option>
+      <option value="vlt_santos">VLT Santos</option>
+      <option value="vlt_campinas">VLT Campinas</option>
     </select>
     <select id="destino">
       <option value="">Destino</option>
-      <option value="sé">Estação Sé</option>
-      <option value="paraiso">Estação Paraíso</option>
-      <option value="bras">Estação Brás</option>
+      <option value="linhas_metro">Linhas de Metrô</option>
+      <option value="linha_1">Linha 1 - Azul</option>
+      <option value="linha_2">Linha 2 - Verde</option>
+      <option value="linha_3">Linha 3 - Vermelha</option>
+      <option value="linha_4">Linha 4 - Amarela</option>
+      <option value="linha_5">Linha 5 - Lilás</option>
+      <option value="linha_15">Linha 15 - Prata</option>
+      <option value="linha_17">Linha 17 - Ouro</option>
+      <option value="linha_11">Linha 11 - Coral (CPTM)</option>
+      <option value="linha_12">Linha 12 - Safira (CPTM)</option>
+      <option value="linha_13">Linha 13 - Jade (CPTM)</option>
+      <option value="linha_7">Linha 7 - Rubi (CPTM)</option>
+      <option value="linha_8">Linha 8 - Diamante (CPTM)</option>
+      <option value="linha_9">Linha 9 - Esmeralda (CPTM)</option>
+      <option value="vlt_santos">VLT Santos</option>
+      <option value="vlt_campinas">VLT Campinas</option>
     </select>
   </div>
 
@@ -147,62 +169,292 @@
 
   <!-- Lista de estações -->
   <div id="stations">
-    <!-- Cartão Estação Sé -->
-    <div class="station-card" data-name="sé">
-      <img class="station-img" src="IMG 1.png" alt="Mapa Estação Sé">
+    <!-- Cartão Linha 1 - Azul -->
+    <div class="station-card" data-name="linha_1">
+      <img class="station-img" src="IMG 3.png" alt="Mapa Linha 1 - Azul">
       <div class="station-info">
-        <div class="station-title">Estação Sé</div>
+        <div class="station-title">Linha 1 - Azul</div>
         <div class="station-detail"><i class="far fa-clock"></i> 04h40 a 00h00</div>
         <div class="station-detail"><i class="fas fa-calendar-day"></i> Todos os dias</div>
-        <div class="station-detail"><i class="fas fa-map-marker-alt"></i> Praça da Sé, S/N°</div>
+        <div class="station-detail"><i class="fas fa-map-marker-alt"></i> São Paulo</div>
         <div class="accessibility">
           <i class="fas fa-wheelchair"></i>
           <i class="fas fa-elevator"></i>
-          <i class="fas fa-person-walking"></i>
         </div>
         <div class="station-description">
-          Elevador de uso preferencial para deficiência e mobilidade reduzida.
+          A linha 1 é uma das mais tradicionais do Metrô de São Paulo. Vale ressaltar que a frequência dos trens é maior nos horários de pico, que geralmente ocorrem: 
+          Manhã: 6h30 às 9h.
+          Tarde: 16h30 às 19h.
         </div>
       </div>
     </div>
 
-    <!-- Cartão Estação Paraíso -->
-    <div class="station-card" data-name="paraiso">
-      <img class="station-img" src="IMG 2.png"alt="Mapa Estação Paraíso">
+    <!-- Cartão Linha 2 - Verde -->
+    <div class="station-card" data-name="linha_2">
+      <img class="station-img" src="IMG 3.png" alt="Mapa Linha 2 - Verde">
       <div class="station-info">
-        <div class="station-title">Estação Paraíso</div>
+        <div class="station-title">Linha 2 - Verde</div>
         <div class="station-detail"><i class="far fa-clock"></i> 04h40 a 00h00</div>
         <div class="station-detail"><i class="fas fa-calendar-day"></i> Todos os dias</div>
-        <div class="station-detail"><i class="fas fa-map-marker-alt"></i> Rua Vergueiro, 1456</div>
+        <div class="station-detail"><i class="fas fa-map-marker-alt"></i> São Paulo</div>
         <div class="accessibility">
           <i class="fas fa-wheelchair"></i>
           <i class="fas fa-elevator"></i>
-          <i class="fas fa-person-walking"></i>
         </div>
         <div class="station-description">
-          Elevador de uso preferencial para deficiência e mobilidade reduzida.
+          A linha 2 conecta várias regiões importantes da cidade, com acessibilidade garantida. É importante notar que a frequência dos trens é maior nos horários de pico, que normalmente ocorrem: 
+          Manhã: 6h30 às 9h.
+          Tarde: 16h30 às 19h.
         </div>
       </div>
     </div>
 
-    <!-- Cartão Estação Brás -->
-    <div class="station-card" data-name="bras">
-      <img class="station-img" src="IMG 3.png" alt="Mapa Estação Brás">
+    <!-- Cartão Linha 3 - Vermelha -->
+    <div class="station-card" data-name="linha_3">
+      <img class="station-img" src="IMG 3.png" alt="Mapa Linha 3 - Vermelha">
       <div class="station-info">
-        <div class="station-title">Estação Brás</div>
+        <div class="station-title">Linha 3 - Vermelha</div>
         <div class="station-detail"><i class="far fa-clock"></i> 04h40 a 00h00</div>
         <div class="station-detail"><i class="fas fa-calendar-day"></i> Todos os dias</div>
-        <div class="station-detail"><i class="fas fa-map-marker-alt"></i> Rua Domingos Paiva</div>
+        <div class="station-detail"><i class="fas fa-map-marker-alt"></i> São Paulo</div>
         <div class="accessibility">
           <i class="fas fa-wheelchair"></i>
           <i class="fas fa-elevator"></i>
-          <i class="fas fa-person-walking"></i>
         </div>
         <div class="station-description">
-          Elevador de uso preferencial para deficiência e mobilidade reduzida.
+          A linha 3 tem algumas das estações mais movimentadas da cidade.
         </div>
       </div>
     </div>
+
+  </div>
+  <!-- Lista de estações -->
+  <div id="stations">
+    <!-- Cartão Linha 4 - Amarela -->
+    <div class="station-card" data-name="linha_4">
+      <img class="station-img" src="IMG 3.png" alt="Mapa Linha 4 - Amarela">
+      <div class="station-info">
+        <div class="station-title">Linha 4 - Amarela</div>
+        <div class="station-detail"><i class="far fa-clock"></i> 04h40 a 00h00</div>
+        <div class="station-detail"><i class="fas fa-calendar-day"></i> Todos os dias</div>
+        <div class="station-detail"><i class="fas fa-map-marker-alt"></i> São Paulo</div>
+        <div class="accessibility">
+          <i class="fas fa-wheelchair"></i>
+          <i class="fas fa-elevator"></i>
+        </div>
+        <div class="station-description">
+          A linha 1 é uma das mais tradicionais do Metrô de São Paulo.
+        </div>
+      </div>
+    </div>
+
+    <!-- Cartão Linha 5 - Lilás -->
+    <div class="station-card" data-name="linha_5">
+      <img class="station-img" src="IMG 3.png" alt="Mapa Linha 5 - Lilás">
+      <div class="station-info">
+        <div class="station-title">Linha 5 - Lilás</div>
+        <div class="station-detail"><i class="far fa-clock"></i> 04h40 a 00h00</div>
+        <div class="station-detail"><i class="fas fa-calendar-day"></i> Todos os dias</div>
+        <div class="station-detail"><i class="fas fa-map-marker-alt"></i> São Paulo</div>
+        <div class="accessibility">
+          <i class="fas fa-wheelchair"></i>
+          <i class="fas fa-elevator"></i>
+        </div>
+        <div class="station-description">
+          A linha 2 conecta várias regiões importantes da cidade, com acessibilidade garantida.
+        </div>
+      </div>
+    </div>
+
+    <!-- Cartão Linha 15 - Prata -->
+    <div class="station-card" data-name="linha_15">
+      <img class="station-img" src="IMG 3.png" alt="Mapa Linha 15 - Prata">
+      <div class="station-info">
+        <div class="station-title">Linha 15 - Prata</div>
+        <div class="station-detail"><i class="far fa-clock"></i> 04h50 a 23h50</div>
+        <div class="station-detail"><i class="fas fa-calendar-day"></i> Todos os dias</div>
+        <div class="station-detail"><i class="fas fa-map-marker-alt"></i> São Paulo</div>
+        <div class="accessibility">
+          <i class="fas fa-wheelchair"></i>
+          <i class="fas fa-elevator"></i>
+        </div>
+        <div class="station-description">
+          A linha 3 tem algumas das estações mais movimentadas da cidade.
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- Lista de estações -->
+  <div id="stations">
+    <!-- Cartão Linha 17 - Ouro -->
+    <div class="station-card" data-name="linha_17">
+      <img class="station-img" src="IMG 3.png" alt="Mapa Linha 17 - Ouro">
+      <div class="station-info">
+        <div class="station-title">Linha 17 - Ouro</div>
+        <div class="station-detail"><i class="far fa-clock"></i> 10h00 a 15h00</div>
+        <div class="station-detail"><i class="fas fa-calendar-day"></i> Todos os dias</div>
+        <div class="station-detail"><i class="fas fa-map-marker-alt"></i> São Paulo</div>
+        <div class="accessibility">
+          <i class="fas fa-wheelchair"></i>
+          <i class="fas fa-elevator"></i>
+        </div>
+        <div class="station-description">
+          A linha 1 é uma das mais tradicionais do Metrô de São Paulo. Em operação parcial, horários podem mudar.
+        </div>
+      </div>
+    </div>
+
+    <!-- Cartão Linha 11 - Coral -->
+    <div class="station-card" data-name="linha_11">
+      <img class="station-img" src="IMG 3.png" alt="Mapa Linha 11 - Coral">
+      <div class="station-info">
+        <div class="station-title">Linha 11 - Coral</div>
+        <div class="station-detail"><i class="far fa-clock"></i> 04h00 a 00h00</div>
+        <div class="station-detail"><i class="fas fa-calendar-day"></i> Todos os dias</div>
+        <div class="station-detail"><i class="fas fa-map-marker-alt"></i> São Paulo</div>
+        <div class="accessibility">
+          <i class="fas fa-wheelchair"></i>
+          <i class="fas fa-elevator"></i>
+        </div>
+        <div class="station-description">
+          A linha 2 conecta várias regiões importantes da cidade, com acessibilidade garantida.
+        </div>
+      </div>
+    </div>
+
+    <!-- Cartão Linha 12 - Safira -->
+    <div class="station-card" data-name="linha_12">
+      <img class="station-img" src="IMG 3.png" alt="Mapa Linha 12 - Safira">
+      <div class="station-info">
+        <div class="station-title">Linha 12 - Safira</div>
+        <div class="station-detail"><i class="far fa-clock"></i> 04h00 a 00h00</div>
+        <div class="station-detail"><i class="fas fa-calendar-day"></i> Todos os dias</div>
+        <div class="station-detail"><i class="fas fa-map-marker-alt"></i> São Paulo</div>
+        <div class="accessibility">
+          <i class="fas fa-wheelchair"></i>
+          <i class="fas fa-elevator"></i>
+        </div>
+        <div class="station-description">
+          A linha 3 tem algumas das estações mais movimentadas da cidade.
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- Lista de estações -->
+  <div id="stations">
+    <!-- Cartão Linha 13 - Jade -->
+    <div class="station-card" data-name="linha_13">
+      <img class="station-img" src="IMG 3.png" alt="Mapa Linha 13 - Jade">
+      <div class="station-info">
+        <div class="station-title">Linha 13 - Jade</div>
+        <div class="station-detail"><i class="far fa-clock"></i> 04h30 a 00h00</div>
+        <div class="station-detail"><i class="fas fa-calendar-day"></i> Todos os dias</div>
+        <div class="station-detail"><i class="fas fa-map-marker-alt"></i> São Paulo</div>
+        <div class="accessibility">
+          <i class="fas fa-wheelchair"></i>
+          <i class="fas fa-elevator"></i>
+        </div>
+        <div class="station-description">
+          A linha 1 é uma das mais tradicionais do Metrô de São Paulo.
+        </div>
+      </div>
+    </div>
+
+    <!-- Cartão Linha 7 - Rubi -->
+    <div class="station-card" data-name="linha_7">
+      <img class="station-img" src="IMG 3.png" alt="Mapa Linha 7 - Rubi">
+      <div class="station-info">
+        <div class="station-title">Linha 7 - Rubi</div>
+        <div class="station-detail"><i class="far fa-clock"></i> 04h00 a 00h00</div>
+        <div class="station-detail"><i class="fas fa-calendar-day"></i> Todos os dias</div>
+        <div class="station-detail"><i class="fas fa-map-marker-alt"></i> São Paulo</div>
+        <div class="accessibility">
+          <i class="fas fa-wheelchair"></i>
+          <i class="fas fa-elevator"></i>
+        </div>
+        <div class="station-description">
+          A linha 2 conecta várias regiões importantes da cidade, com acessibilidade garantida.
+        </div>
+      </div>
+    </div>
+
+    <!-- Cartão Linha 8 - Diamante -->
+    <div class="station-card" data-name="linha_8">
+      <img class="station-img" src="IMG 3.png" alt="Mapa Linha 8 - Diamante">
+      <div class="station-info">
+        <div class="station-title">Linha 8 - Diamante</div>
+        <div class="station-detail"><i class="far fa-clock"></i> 04h00 a 00h00</div>
+        <div class="station-detail"><i class="fas fa-calendar-day"></i> Todos os dias</div>
+        <div class="station-detail"><i class="fas fa-map-marker-alt"></i> São Paulo</div>
+        <div class="accessibility">
+          <i class="fas fa-wheelchair"></i>
+          <i class="fas fa-elevator"></i>
+        </div>
+        <div class="station-description">
+          A linha 3 tem algumas das estações mais movimentadas da cidade.
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- Lista de estações -->
+  <div id="stations">
+    <!-- Cartão Linha 9 - Esmeralda -->
+    <div class="station-card" data-name="linha_9">
+      <img class="station-img" src="IMG 3.png" alt="Mapa Linha 9 - Esmeralda">
+      <div class="station-info">
+        <div class="station-title">Linha 9 - Esmeralda</div>
+        <div class="station-detail"><i class="far fa-clock"></i> 04h00 a 00h00</div>
+        <div class="station-detail"><i class="fas fa-calendar-day"></i> Todos os dias</div>
+        <div class="station-detail"><i class="fas fa-map-marker-alt"></i> São Paulo</div>
+        <div class="accessibility">
+          <i class="fas fa-wheelchair"></i>
+          <i class="fas fa-elevator"></i>
+        </div>
+        <div class="station-description">
+          A linha 1 é uma das mais tradicionais do Metrô de São Paulo.
+        </div>
+      </div>
+    </div>
+
+    <!-- Cartão Linha VLT- Santos -->
+    <div class="station-card" data-name="linha_VLT">
+      <img class="station-img" src="IMG 3.png" alt="Mapa Linha VLT - Santos">
+      <div class="station-info">
+        <div class="station-title"> VLT Santos</div>
+        <div class="station-detail"><i class="far fa-clock"></i> 05h00 a 00h00</div>
+        <div class="station-detail"><i class="fas fa-calendar-day"></i> Todos os dias</div>
+        <div class="station-detail"><i class="fas fa-map-marker-alt"></i> São Paulo</div>
+        <div class="accessibility">
+          <i class="fas fa-wheelchair"></i>
+          <i class="fas fa-elevator"></i>
+        </div>
+        <div class="station-description">
+          A linha 2 conecta várias regiões importantes da cidade, com acessibilidade garantida.
+        </div>
+      </div>
+    </div>
+
+    <!-- Cartão Linha VLT - Campinas-->
+    <div class="station-card" data-name="linha_VLT">
+      <img class="station-img" src="IMG 3.png" alt="Mapa Linha VLT - Campinas">
+      <div class="station-info">
+        <div class="station-title">VLT Campinas</div>
+        <div class="station-detail"><i class="far fa-clock"></i> 05h00 a 00h00</div>
+        <div class="station-detail"><i class="fas fa-calendar-day"></i> Todos os dias</div>
+        <div class="station-detail"><i class="fas fa-map-marker-alt"></i> São Paulo</div>
+        <div class="accessibility">
+          <i class="fas fa-wheelchair"></i>
+          <i class="fas fa-elevator"></i>
+        </div>
+        <div class="station-description">
+          A linha 3 tem algumas das estações mais movimentadas da cidade.
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <script>
