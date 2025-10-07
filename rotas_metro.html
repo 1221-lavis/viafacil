@@ -69,10 +69,12 @@
     }
 
     .station-img {
-      width: 120px;
-      height: auto;
-      object-fit: cover;
-    }
+  width: 160px;        /* tamanho pequeno */
+  height:160px;       /* quadradinha */
+  object-fit: cover;  /* mantém a proporção e corta o excesso */
+  border-radius: 8px; /* opcional: cantos arredondados */
+  margin-right: 12px; /* espaço entre a imagem e o texto */
+}
 
     .station-info {
       padding: 12px;
@@ -141,6 +143,7 @@
       <option value="linha_7">Linha 7 - Rubi (CPTM)</option>
       <option value="linha_8">Linha 8 - Diamante (CPTM)</option>
       <option value="linha_9">Linha 9 - Esmeralda (CPTM)</option>
+      <option value="linha_10">Linha 10 - Turquesa (CPTM)</option>
       <option value="vlt_santos">VLT Santos</option>
       <option value="vlt_campinas">VLT Campinas</option>
     </select>
@@ -160,6 +163,7 @@
       <option value="linha_7">Linha 7 - Rubi (CPTM)</option>
       <option value="linha_8">Linha 8 - Diamante (CPTM)</option>
       <option value="linha_9">Linha 9 - Esmeralda (CPTM)</option>
+      <option value="linha_10">Linha 10 - Turquesa (CPTM)</option>
       <option value="vlt_santos">VLT Santos</option>
       <option value="vlt_campinas">VLT Campinas</option>
     </select>
@@ -171,7 +175,7 @@
   <div id="stations">
     <!-- Cartão Linha 1 - Azul -->
     <div class="station-card" data-name="linha_1">
-      <img class="station-img" src="IMG 3.png" alt="Mapa Linha 1 - Azul">
+      <img class="station-img"  src="Imagem/linha1, sé.png" alt="Mapa Linha 1 - Azul">
       <div class="station-info">
         <div class="station-title">Linha 1 - Azul</div>
         <div class="station-detail"><i class="far fa-clock"></i> 04h40 a 00h00</div>
@@ -180,18 +184,19 @@
         <div class="accessibility">
           <i class="fas fa-wheelchair"></i>
           <i class="fas fa-elevator"></i>
+          <i class="fas fa-eye-slash"></i>
+          <i class="fas fa-puzzle-piece"></i>
+          <i class="fas fa-person-walking-with-cane"></i>
         </div>
         <div class="station-description">
-          A linha 1 é uma das mais tradicionais do Metrô de São Paulo. Vale ressaltar que a frequência dos trens é maior nos horários de pico, que geralmente ocorrem: 
-          Manhã: 6h30 às 9h.
-          Tarde: 16h30 às 19h.
+            A Linha 1-Azul do Metrô de São Paulo é a mais tradicional, conectando importantes regiões da cidade. Todas as suas estações oferecem acessibilidade para pessoas com mobilidade reduzida, cegos e com baixa visão, cadeirantes e pessoas com dificuldade de locomoção.
         </div>
       </div>
     </div>
 
     <!-- Cartão Linha 2 - Verde -->
     <div class="station-card" data-name="linha_2">
-      <img class="station-img" src="IMG 3.png" alt="Mapa Linha 2 - Verde">
+      <img class="station-img" src="Imagem/linha 2, paulista.png" alt="Mapa Linha 2 - Verde">
       <div class="station-info">
         <div class="station-title">Linha 2 - Verde</div>
         <div class="station-detail"><i class="far fa-clock"></i> 04h40 a 00h00</div>
@@ -200,18 +205,19 @@
         <div class="accessibility">
           <i class="fas fa-wheelchair"></i>
           <i class="fas fa-elevator"></i>
+          <i class="fas fa-eye-slash"></i>
+          <i class="fas fa-puzzle-piece"></i>
+          <i class="fas fa-person-walking-with-cane"></i>
         </div>
         <div class="station-description">
-          A linha 2 conecta várias regiões importantes da cidade, com acessibilidade garantida. É importante notar que a frequência dos trens é maior nos horários de pico, que normalmente ocorrem: 
-          Manhã: 6h30 às 9h.
-          Tarde: 16h30 às 19h.
+            A Linha 2-Verde do Metrô de São Paulo liga regiões centrais e importantes da cidade, facilitando o deslocamento diário. Todas as suas estações são acessíveis para cadeirantes, cegos e com baixa visão, pessoas com mobilidade reduzida e usuários de cadeiras de rodas.
         </div>
       </div>
     </div>
 
     <!-- Cartão Linha 3 - Vermelha -->
     <div class="station-card" data-name="linha_3">
-      <img class="station-img" src="IMG 3.png" alt="Mapa Linha 3 - Vermelha">
+      <img class="station-img" src="Imagem/linha 3 vermelha.png" alt="Mapa Linha 3 - Vermelha">
       <div class="station-info">
         <div class="station-title">Linha 3 - Vermelha</div>
         <div class="station-detail"><i class="far fa-clock"></i> 04h40 a 00h00</div>
@@ -220,9 +226,12 @@
         <div class="accessibility">
           <i class="fas fa-wheelchair"></i>
           <i class="fas fa-elevator"></i>
+          <i class="fas fa-eye-slash"></i>
+          <i class="fas fa-puzzle-piece"></i>
+          <i class="fas fa-person-walking-with-cane"></i>
         </div>
         <div class="station-description">
-          A linha 3 tem algumas das estações mais movimentadas da cidade.
+            A Linha 3-Vermelha do Metrô de São Paulo atravessa a cidade de leste a oeste, conectando áreas de grande fluxo de passageiros. Todas as suas estações oferecem acessibilidade para cadeirantes,cegos e com baixa visão, pessoas com mobilidade reduzida e usuários de cadeiras de rodas.
         </div>
       </div>
     </div>
@@ -232,7 +241,7 @@
   <div id="stations">
     <!-- Cartão Linha 4 - Amarela -->
     <div class="station-card" data-name="linha_4">
-      <img class="station-img" src="IMG 3.png" alt="Mapa Linha 4 - Amarela">
+      <img class="station-img" src="Imagem/linha 4 amarela.jfif" alt="Mapa Linha 4 - Amarela">
       <div class="station-info">
         <div class="station-title">Linha 4 - Amarela</div>
         <div class="station-detail"><i class="far fa-clock"></i> 04h40 a 00h00</div>
@@ -241,16 +250,20 @@
         <div class="accessibility">
           <i class="fas fa-wheelchair"></i>
           <i class="fas fa-elevator"></i>
+          <i class="fas fa-eye-slash"></i>
+          <i class="fas fa-puzzle-piece"></i>
+          <i class="fas fa-person-walking-with-cane"></i>
         </div>
         <div class="station-description">
-          A linha 1 é uma das mais tradicionais do Metrô de São Paulo.
+            A Linha 4-Amarela do Metrô de São Paulo** conecta regiões importantes da zona oeste, facilitando a integração com outras linhas. Suas estações são **acessíveis para cadeirantes, pessoas com mobilidade reduzida, cegos e com baixa visão, e usuários de cadeiras de rodas.
+
         </div>
       </div>
     </div>
 
     <!-- Cartão Linha 5 - Lilás -->
     <div class="station-card" data-name="linha_5">
-      <img class="station-img" src="IMG 3.png" alt="Mapa Linha 5 - Lilás">
+      <img class="station-img" src="Imagem/linha 5, lilas.png" alt="Mapa Linha 5 - Lilás">
       <div class="station-info">
         <div class="station-title">Linha 5 - Lilás</div>
         <div class="station-detail"><i class="far fa-clock"></i> 04h40 a 00h00</div>
@@ -259,16 +272,19 @@
         <div class="accessibility">
           <i class="fas fa-wheelchair"></i>
           <i class="fas fa-elevator"></i>
+          <i class="fas fa-eye-slash"></i>
+          <i class="fas fa-puzzle-piece"></i>
+          <i class="fas fa-person-walking-with-cane"></i>
         </div>
         <div class="station-description">
-          A linha 2 conecta várias regiões importantes da cidade, com acessibilidade garantida.
+            A Linha 5-Lilás do Metrô de São Paulo atende a zona sul da cidade, oferecendo conexão com outras linhas e regiões estratégicas. Todas as suas estações são acessíveis para cadeirantes,cegos e com baixa visão, pessoas com mobilidade reduzida e usuários de cadeiras de rodas.
         </div>
       </div>
     </div>
 
     <!-- Cartão Linha 15 - Prata -->
     <div class="station-card" data-name="linha_15">
-      <img class="station-img" src="IMG 3.png" alt="Mapa Linha 15 - Prata">
+      <img class="station-img" src="Imagem/estação 15 prata.png" alt="Mapa Linha 15 - Prata">
       <div class="station-info">
         <div class="station-title">Linha 15 - Prata</div>
         <div class="station-detail"><i class="far fa-clock"></i> 04h50 a 23h50</div>
@@ -277,9 +293,12 @@
         <div class="accessibility">
           <i class="fas fa-wheelchair"></i>
           <i class="fas fa-elevator"></i>
+          <i class="fas fa-eye-slash"></i>
+          <i class="fas fa-puzzle-piece"></i>
+          <i class="fas fa-person-walking-with-cane"></i>
         </div>
         <div class="station-description">
-          A linha 3 tem algumas das estações mais movimentadas da cidade.
+            A Linha 15-Prata do Metrô de São Paulo é uma linha monotrilho que atende a zona leste da cidade, conectando bairros e facilitando a integração com outras linhas. Todas as suas estações são acessíveis para cadeirantes,cegos e com baixa visão, pessoas com mobilidade reduzida e usuários de cadeiras de rodas.
         </div>
       </div>
     </div>
@@ -289,7 +308,7 @@
   <div id="stations">
     <!-- Cartão Linha 17 - Ouro -->
     <div class="station-card" data-name="linha_17">
-      <img class="station-img" src="IMG 3.png" alt="Mapa Linha 17 - Ouro">
+      <img class="station-img" src="Imagem/linha 17 ouro.jpg" alt="Mapa Linha 17 - Ouro">
       <div class="station-info">
         <div class="station-title">Linha 17 - Ouro</div>
         <div class="station-detail"><i class="far fa-clock"></i> 10h00 a 15h00</div>
@@ -298,16 +317,19 @@
         <div class="accessibility">
           <i class="fas fa-wheelchair"></i>
           <i class="fas fa-elevator"></i>
+          <i class="fas fa-eye-slash"></i>
+          <i class="fas fa-puzzle-piece"></i>
+          <i class="fas fa-person-walking-with-cane"></i>
         </div>
         <div class="station-description">
-          A linha 1 é uma das mais tradicionais do Metrô de São Paulo. Em operação parcial, horários podem mudar.
+            A Linha 17-Ouro do Metrô de São Paulo é uma linha monorail que atende a região sul da cidade, conectando pontos estratégicos e integrando-se a outras linhas. Suas estações são acessíveis para cadeirantes,cegos e com baixa visão, pessoas com mobilidade reduzida e usuários de cadeiras de rodas.
         </div>
       </div>
     </div>
 
     <!-- Cartão Linha 11 - Coral -->
     <div class="station-card" data-name="linha_11">
-      <img class="station-img" src="IMG 3.png" alt="Mapa Linha 11 - Coral">
+      <img class="station-img" src="Imagem/linha 11, coral.webp" alt="Mapa Linha 11 - Coral">
       <div class="station-info">
         <div class="station-title">Linha 11 - Coral</div>
         <div class="station-detail"><i class="far fa-clock"></i> 04h00 a 00h00</div>
@@ -316,16 +338,19 @@
         <div class="accessibility">
           <i class="fas fa-wheelchair"></i>
           <i class="fas fa-elevator"></i>
+          <i class="fas fa-eye-slash"></i>
+          <i class="fas fa-puzzle-piece"></i>
+          <i class="fas fa-person-walking-with-cane"></i>
         </div>
         <div class="station-description">
-          A linha 2 conecta várias regiões importantes da cidade, com acessibilidade garantida.
+            A Linha 11-Coral da CPTM liga a zona leste de São Paulo a importantes regiões metropolitanas, facilitando o deslocamento diário. Todas as suas estações são acessíveis para cadeirantes, cegos e com baixa visão, pessoas com mobilidade reduzida e usuários de cadeiras de rodas.
         </div>
       </div>
     </div>
 
     <!-- Cartão Linha 12 - Safira -->
     <div class="station-card" data-name="linha_12">
-      <img class="station-img" src="IMG 3.png" alt="Mapa Linha 12 - Safira">
+      <img class="station-img" src="Imagem/linha 12 safira.webp" alt="Mapa Linha 12 - Safira">
       <div class="station-info">
         <div class="station-title">Linha 12 - Safira</div>
         <div class="station-detail"><i class="far fa-clock"></i> 04h00 a 00h00</div>
@@ -334,9 +359,12 @@
         <div class="accessibility">
           <i class="fas fa-wheelchair"></i>
           <i class="fas fa-elevator"></i>
+          <i class="fas fa-eye-slash"></i>
+          <i class="fas fa-puzzle-piece"></i>
+          <i class="fas fa-person-walking-with-cane"></i>
         </div>
         <div class="station-description">
-          A linha 3 tem algumas das estações mais movimentadas da cidade.
+            A Linha 12-Safira da CPTM conecta a zona leste de São Paulo a municípios da Grande São Paulo, integrando transporte urbano e metropolitano. Todas as suas estações são acessíveis para cadeirantes, cegos e com baixa visão, pessoas com mobilidade reduzida e usuários de cadeiras de rodas.
         </div>
       </div>
     </div>
@@ -346,7 +374,7 @@
   <div id="stations">
     <!-- Cartão Linha 13 - Jade -->
     <div class="station-card" data-name="linha_13">
-      <img class="station-img" src="IMG 3.png" alt="Mapa Linha 13 - Jade">
+      <img class="station-img" src="Imagem/linha 13 jade.webp" alt="Mapa Linha 13 - Jade">
       <div class="station-info">
         <div class="station-title">Linha 13 - Jade</div>
         <div class="station-detail"><i class="far fa-clock"></i> 04h30 a 00h00</div>
@@ -355,16 +383,21 @@
         <div class="accessibility">
           <i class="fas fa-wheelchair"></i>
           <i class="fas fa-elevator"></i>
+          <i class="fas fa-eye-slash"></i>
+          <i class="fas fa-puzzle-piece"></i>
+          <i class="fas fa-person-walking-with-cane"></i>
         </div>
         <div class="station-description">
-          A linha 1 é uma das mais tradicionais do Metrô de São Paulo.
+            A Linha 13-Jade da CPTM conecta a região norte de São Paulo ao Aeroporto Internacional de Guarulhos, oferecendo transporte rápido e eficiente.
+            A linha integra-se a outras linhas do Metrô e da CPTM, facilitando o deslocamento diário e garantindo comodidade aos passageiros.
+            Todas as suas estações são acessíveis para cadeirantes, cegos e com baixa visão e pessoas com mobilidade reduzida, com elevadores, rampas e sinalização adequada.
         </div>
       </div>
     </div>
 
     <!-- Cartão Linha 7 - Rubi -->
     <div class="station-card" data-name="linha_7">
-      <img class="station-img" src="IMG 3.png" alt="Mapa Linha 7 - Rubi">
+      <img class="station-img" src="Imagem/linha 7, rubi.png" alt="Mapa Linha 7 - Rubi">
       <div class="station-info">
         <div class="station-title">Linha 7 - Rubi</div>
         <div class="station-detail"><i class="far fa-clock"></i> 04h00 a 00h00</div>
@@ -373,16 +406,21 @@
         <div class="accessibility">
           <i class="fas fa-wheelchair"></i>
           <i class="fas fa-elevator"></i>
+          <i class="fas fa-eye-slash"></i>
+          <i class="fas fa-puzzle-piece"></i>
+          <i class="fas fa-person-walking-with-cane"></i>
         </div>
         <div class="station-description">
-          A linha 2 conecta várias regiões importantes da cidade, com acessibilidade garantida.
+            A Linha 7-Rubi da CPTM liga a zona oeste de São Paulo a municípios da Grande São Paulo, atendendo importantes regiões metropolitanas.
+            A linha permite integração com outras linhas da CPTM e do Metrô, facilitando o deslocamento diário dos passageiros.
+            Todas as suas estações são acessíveis para cadeirantes, cegos e com baixa visão e pessoas com mobilidade reduzida, oferecendo elevadores, rampas e sinalização adequada.
         </div>
       </div>
     </div>
 
     <!-- Cartão Linha 8 - Diamante -->
     <div class="station-card" data-name="linha_8">
-      <img class="station-img" src="IMG 3.png" alt="Mapa Linha 8 - Diamante">
+      <img class="station-img" src="Imagem/linha 8, diamente.webp" alt="Mapa Linha 8 - Diamante">
       <div class="station-info">
         <div class="station-title">Linha 8 - Diamante</div>
         <div class="station-detail"><i class="far fa-clock"></i> 04h00 a 00h00</div>
@@ -391,9 +429,14 @@
         <div class="accessibility">
           <i class="fas fa-wheelchair"></i>
           <i class="fas fa-elevator"></i>
+          <i class="fas fa-eye-slash"></i>
+          <i class="fas fa-puzzle-piece"></i>
+          <i class="fas fa-person-walking-with-cane"></i>
         </div>
         <div class="station-description">
-          A linha 3 tem algumas das estações mais movimentadas da cidade.
+            A Linha 8-Diamante da CPTM conecta a região oeste de São Paulo a municípios vizinhos, atendendo áreas residenciais e comerciais importantes.
+            A linha permite integração com outras linhas da CPTM e do Metrô, facilitando o deslocamento diário e a mobilidade urbana.
+            Todas as suas estações são acessíveis para cadeirantes, cegos e com baixa visão, e pessoas com mobilidade reduzida, contando com elevadores, rampas e sinalização adequada.
         </div>
       </div>
     </div>
@@ -403,7 +446,7 @@
   <div id="stations">
     <!-- Cartão Linha 9 - Esmeralda -->
     <div class="station-card" data-name="linha_9">
-      <img class="station-img" src="IMG 3.png" alt="Mapa Linha 9 - Esmeralda">
+      <img class="station-img" src="Imagem/linha 9, esmeralda.webp" alt="Mapa Linha 9 - Esmeralda">
       <div class="station-info">
         <div class="station-title">Linha 9 - Esmeralda</div>
         <div class="station-detail"><i class="far fa-clock"></i> 04h00 a 00h00</div>
@@ -412,16 +455,45 @@
         <div class="accessibility">
           <i class="fas fa-wheelchair"></i>
           <i class="fas fa-elevator"></i>
+          <i class="fas fa-eye-slash"></i>
+          <i class="fas fa-puzzle-piece"></i>
+          <i class="fas fa-person-walking-with-cane"></i>
         </div>
         <div class="station-description">
-          A linha 1 é uma das mais tradicionais do Metrô de São Paulo.
+            A Linha 9-Esmeralda da CPTM conecta a zona sul e a região oeste de São Paulo, atendendo áreas residenciais e comerciais importantes.
+            A linha permite integração com outras linhas da CPTM e do Metrô, facilitando o deslocamento diário dos passageiros.
+            Todas as suas estações são acessíveis para cadeirantes, cegos e com baixa visão, e pessoas com mobilidade reduzida, oferecendo elevadores, rampas e sinalização adequada.
+        </div>
+      </div>
+    </div>
+     <!-- Lista de estações -->
+  <div id="stations">
+    <!-- Cartão Linha 10 - Turquesa -->
+    <div class="station-card" data-name="linha_10">
+      <img class="station-img" src="Imagem/Linha 10 turquesa.png" alt="Mapa Linha 10 - Turquesa">
+      <div class="station-info">
+        <div class="station-title">Linha 10 - Turquesa</div>
+        <div class="station-detail"><i class="far fa-clock"></i> 04h00 a 00h00</div>
+        <div class="station-detail"><i class="fas fa-calendar-day"></i> Todos os dias</div>
+        <div class="station-detail"><i class="fas fa-map-marker-alt"></i> São Paulo</div>
+        <div class="accessibility">
+          <i class="fas fa-wheelchair"></i>
+          <i class="fas fa-elevator"></i>
+          <i class="fas fa-eye-slash"></i>
+          <i class="fas fa-puzzle-piece"></i>
+          <i class="fas fa-person-walking-with-cane"></i>
+        </div>
+        <div class="station-description">
+            A Linha 10–Turquesa da CPTM conecta a região central de São Paulo ao ABC Paulista, passando por importantes cidades como Santo André e Mauá.
+            Ela oferece integração com outras linhas do Metrô e da CPTM, garantindo deslocamentos rápidos e práticos entre a capital e a região metropolitana.
+            Todas as suas estações são acessíveis para cadeirantes e pessoas com mobilidade reduzida, contando com rampas, elevadores e sinalização adequada.
         </div>
       </div>
     </div>
 
     <!-- Cartão Linha VLT- Santos -->
-    <div class="station-card" data-name="linha_VLT">
-      <img class="station-img" src="IMG 3.png" alt="Mapa Linha VLT - Santos">
+    <div class="station-card" data-name="vlt_santos">
+      <img class="station-img" src="Imagem/VLT santos.webp" alt="Mapa Linha VLT - Santos">
       <div class="station-info">
         <div class="station-title"> VLT Santos</div>
         <div class="station-detail"><i class="far fa-clock"></i> 05h00 a 00h00</div>
@@ -430,16 +502,21 @@
         <div class="accessibility">
           <i class="fas fa-wheelchair"></i>
           <i class="fas fa-elevator"></i>
+          <i class="fas fa-eye-slash"></i>
+          <i class="fas fa-puzzle-piece"></i>
+          <i class="fas fa-person-walking-with-cane"></i>
         </div>
         <div class="station-description">
-          A linha 2 conecta várias regiões importantes da cidade, com acessibilidade garantida.
-        </div>
+            O VLT Santos conecta regiões centrais de Santos, facilitando o deslocamento entre bairros e pontos turísticos da cidade.
+            O sistema permite integração com outros modais de transporte urbano, tornando os trajetos mais rápidos e eficientes.
+            Todas as suas estações são acessíveis para cadeirantes, cegos e com baixa visão, e pessoas com mobilidade reduzida, com rampas, elevadores e sinalização adequada.
       </div>
+    </div>
     </div>
 
     <!-- Cartão Linha VLT - Campinas-->
-    <div class="station-card" data-name="linha_VLT">
-      <img class="station-img" src="IMG 3.png" alt="Mapa Linha VLT - Campinas">
+    <div class="station-card" data-name="vlt_campinas">
+      <img class="station-img" src="Imagem/VLT campinas.webp" alt="Mapa Linha VLT - Campinas">
       <div class="station-info">
         <div class="station-title">VLT Campinas</div>
         <div class="station-detail"><i class="far fa-clock"></i> 05h00 a 00h00</div>
@@ -448,9 +525,14 @@
         <div class="accessibility">
           <i class="fas fa-wheelchair"></i>
           <i class="fas fa-elevator"></i>
+          <i class="fas fa-eye-slash"></i>
+          <i class="fas fa-puzzle-piece"></i>
+          <i class="fas fa-person-walking-with-cane"></i>
         </div>
         <div class="station-description">
-          A linha 3 tem algumas das estações mais movimentadas da cidade.
+            O VLT Campinas conecta importantes regiões da cidade, facilitando o transporte diário de moradores e visitantes.
+            O sistema integra-se a outros modais urbanos, garantindo deslocamentos mais rápidos e eficientes pela cidade.
+            Todas as suas estações são acessíveis para cadeirantes, cegos e com baixa visão, e pessoas com mobilidade reduzida, contando com rampas, elevadores e sinalização adequada.
         </div>
       </div>
     </div>
