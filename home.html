@@ -145,12 +145,12 @@
   </div>
 
   <div class="search-container">
-    <input type="text" class="search-box" placeholder="Pesquisar rota...">
+    <input type="text" class="search-box" id="searchBox" placeholder="Pesquisar rota...">
   </div>
 
   <div id="map"></div>
 
-  <div class="routes">
+  <div class="routes" id="routesContainer">
     <h3>Rotas disponíveis:</h3>
 
     <div class="route-card">
@@ -182,6 +182,7 @@
 
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script>
+    // MAPA
     var map = L.map('map').setView([-23.5896, -46.6333], 13);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors'
@@ -213,6 +214,21 @@
 
       modoSelecao = null;
     });
+
+    // PESQUISA DE ROTAS FUNCIONANDO
+    const searchBox = document.getElementById('searchBox');
+    const routesContainer = document.getElementById('routesContainer');
+
+    searchBox.addEventListener('input', function() {
+      const query = this.value.toLowerCase().trim();
+      const routeCards = routesContainer.querySelectorAll('.route-card');
+
+      routeCards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(query) ? 'flex' : 'none';
+      });
+    });
   </script>
 </body>
 </html>
+
