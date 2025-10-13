@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Via Fácil - Comentários</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Fontes e ícones -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -156,9 +156,9 @@
   <!-- Título -->
   <div class="title">Comentários</div>
 
-  <!-- Área onde os comentários serão exibidos -->
+  <!-- Único container para todos os comentários (fixos + novos) -->
   <div id="comments-container">
-    <!-- Comentário exemplo -->
+    <!-- Comentários fixos abaixo -->
     <div class="comment-card" style="border: 2px solid #00a6e2;">
       <div class="comment-header">
         <div class="user-info">
@@ -177,10 +177,7 @@
         Gosto muito da estação da República, pelo elevador acessivel, porem tem bastante áreas estreitas.
       </div>
     </div>
-  </div>
-  <!-- Área onde os comentários serão exibidos -->
-  <div id="comments-container">
-    <!-- Comentário exemplo -->
+
     <div class="comment-card" style="border: 2px solid #00a6e2;">
       <div class="comment-header">
         <div class="user-info">
@@ -199,10 +196,7 @@
         Gosto do Terminal de são mateus  porque tem elevador e rampa nos lugares, isso ajuda muito.
       </div>
     </div>
-  </div>
-  <!-- Área onde os comentários serão exibidos -->
-  <div id="comments-container">
-    <!-- Comentário exemplo -->
+
     <div class="comment-card" style="border: 2px solid #00a6e2;">
       <div class="comment-header">
         <div class="user-info">
@@ -221,10 +215,7 @@
         A estação Brás facilita bastante com seus elevadores, mas ainda falta orientação sonora para deficientes visuais.
       </div>
     </div>
-  </div>
-  <!-- Área onde os comentários serão exibidos -->
-  <div id="comments-container">
-    <!-- Comentário exemplo -->
+
     <div class="comment-card" style="border: 2px solid #00a6e2;">
       <div class="comment-header">
         <div class="user-info">
@@ -243,10 +234,7 @@
         Gosto da estação Vila Prudente por ser acessível, mas o caminho até a saída principal é bem longo e cansativo.
       </div>
     </div>
-  </div>
-   <!-- Área onde os comentários serão exibidos -->
-   <div id="comments-container">
-    <!-- Comentário exemplo -->
+
     <div class="comment-card" style="border: 2px solid #00a6e2;">
       <div class="comment-header">
         <div class="user-info">
@@ -265,10 +253,7 @@
         Uso a estação Barra Funda com frequência por conta do elevador, mas ela fica superlotada em horários de evento.
       </div>
     </div>
-  </div>
-  <!-- Área onde os comentários serão exibidos -->
-  <div id="comments-container">
-    <!-- Comentário exemplo -->
+
     <div class="comment-card" style="border: 2px solid #00a6e2;">
       <div class="comment-header">
         <div class="user-info">
@@ -287,8 +272,27 @@
         A acessibilidade na estação Santa Cruz me ajuda muito, só que em dias chuvosos, o piso fica escorregadio.
       </div>
     </div>
+
+    <!-- Último comentário fixo -->
+    <div class="comment-card" style="border: 2px solid #00a6e2;">
+      <div class="comment-header">
+        <div class="user-info">
+          <i class="fas fa-user-circle"></i>
+          <div>
+            <div class="user-name">TEREZA DA CUNHA</div>
+            <div class="time">1 ANO ATRÁS</div>
+          </div>
+        </div>
+        <div class="like" onclick="toggleLike(this)">
+          <i class="far fa-heart"></i> <span>3</span>
+        </div>
+      </div>
+      <div class="stars">★★★★★</div>
+      <div class="comment-text">
+        Que legal que o app ajuda a encontrar rotas mais fáceis, sem muitas escadas!
+      </div>
+    </div>
   </div>
-  <!-- Comentário 1 --> <div class="comment-card" style="border: 2px solid #00a6e2;"> <div class="comment-header"> <div class="user-info"> <i class="fas fa-user-circle"></i> <div> <div class="user-name">TEREZA DA CUNHA</div> <div class="time">1 ANO ATRÁS</div> </div> </div> <div class="like" onclick="toggleLike(this)"> <i class="far fa-heart"></i> <span>3</span> </div> </div> <div class="stars">★★★★★</div> <div class="comment-text"> Que legal que o app ajuda a encontrar rotas mais fáceis, sem muitas escadas! </div> </div>
 
   <!-- Campo para enviar comentário -->
   <div class="comment-form">
@@ -297,6 +301,7 @@
   </div>
 
   <script>
+    // Função para curtir comentário
     function toggleLike(element) {
       const icon = element.querySelector("i");
       const count = element.querySelector("span");
@@ -316,16 +321,11 @@
       count.textContent = num;
     }
 
-    function addComment() {
-      const input = document.getElementById("comment-input");
-      const text = input.value.trim();
-      if (text === "") return;
-
-      const container = document.getElementById("comments-container");
-
-      // Cria o elemento de comentário
+    // Função para criar o elemento HTML de comentário novo
+    function criarComentarioUsuario(texto) {
       const div = document.createElement("div");
-      div.classList.add("comment-card");
+      div.className = "comment-card";
+      div.style.border = "2px solid #00a6e2";
       div.innerHTML = `
         <div class="comment-header">
           <div class="user-info">
@@ -339,16 +339,62 @@
             <i class="far fa-heart"></i> <span>0</span>
           </div>
         </div>
-        <div class="stars"></div>
-        <div class="comment-text">${text}</div>
+        <div class="stars">★★★★★</div>
+        <div class="comment-text">${texto}</div>
       `;
+      return div;
+    }
 
-      // Adiciona no topo
-      container.prepend(div);
+    // Salvar comentários do usuário no localStorage
+    function salvarComentariosUsuario(comentarios) {
+      localStorage.setItem("comentariosUsuario", JSON.stringify(comentarios));
+    }
 
-      // Limpa o campo
+    // Pegar comentários do usuário no localStorage
+    function pegarComentariosUsuario() {
+      const dados = localStorage.getItem("comentariosUsuario");
+      return dados ? JSON.parse(dados) : [];
+    }
+
+    // Exibir comentários de usuário salvos
+    function mostrarComentariosUsuario() {
+      const container = document.getElementById("comments-container");
+      const comentarios = pegarComentariosUsuario();
+
+      // Inserir comentários do usuário *antes* dos fixos
+      comentarios.forEach(texto => {
+        const comentarioElement = criarComentarioUsuario(texto);
+        container.insertBefore(comentarioElement, container.firstChild);
+      });
+    }
+
+    // Função para adicionar novo comentário
+    function addComment() {
+      const input = document.getElementById("comment-input");
+      const texto = input.value.trim();
+
+      if (texto === "") {
+        alert("Por favor, escreva um comentário.");
+        return;
+      }
+
+      // Salvar no localStorage
+      const comentarios = pegarComentariosUsuario();
+      comentarios.push(texto);
+      salvarComentariosUsuario(comentarios);
+
+      // Mostrar na tela
+      const container = document.getElementById("comments-container");
+      const novoComentario = criarComentarioUsuario(texto);
+      container.insertBefore(novoComentario, container.firstChild);
+
       input.value = "";
     }
+
+    // Ao carregar a página, mostra os comentários salvos do usuário
+    window.onload = function() {
+      mostrarComentariosUsuario();
+    };
   </script>
 </body>
 </html>
