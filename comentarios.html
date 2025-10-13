@@ -4,148 +4,35 @@
   <meta charset="UTF-8" />
   <title>Via Fácil - Comentários</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Fontes e ícones -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
-
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Roboto', sans-serif;
-      background: #e6f0f5;
-      color: #333;
-    }
+    body { font-family: 'Roboto', sans-serif; background: #e6f0f5; color: #333; }
 
-    /* Cabeçalho */
-    header {
-      background: #00a6e2;
-      color: white;
-      padding: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-    header h2 {
-      font-size: 20px;
-      font-weight: 500;
-    }
-    .back-icon {
-      position: absolute;
-      left: 16px;
-      font-size: 20px;
-      cursor: pointer;
-    }
+    header { background: #00a6e2; color: white; padding: 14px; display: flex; align-items: center; justify-content: center; position: relative; }
+    header h2 { font-size: 20px; font-weight: 500; }
+    .back-icon { position: absolute; left: 16px; font-size: 20px; cursor: pointer; }
 
-    /* Título Comentários */
-    .title {
-      text-align: center;
-      font-size: 18px;
-      margin: 16px 0;
-      font-weight: 500;
-      color: #555;
-    }
+    .title { text-align: center; font-size: 18px; margin: 16px 0; font-weight: 500; color: #555; }
 
-    /* Cartões */
-    .comment-card {
-      background: #fff;
-      border-radius: 10px;
-      border: 1px solid #ccc;
-      margin: 12px 16px;
-      padding: 12px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      position: relative;
-    }
+    .comment-card { background: #fff; border-radius: 10px; border: 1px solid #ccc; margin: 12px 16px; padding: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: relative; }
+    .comment-header { display: flex; align-items: center; justify-content: space-between; }
+    .user-info { display: flex; align-items: center; gap: 8px; }
+    .user-info i { font-size: 24px; color: #333; }
+    .user-name { font-weight: 700; font-size: 15px; }
+    .time { font-size: 12px; color: #777; }
+    .like { font-size: 18px; color: #666; cursor: pointer; display: flex; align-items: center; gap: 4px; user-select: none; }
+    .stars { margin: 8px 0; color: gold; font-size: 16px; }
+    .comment-text { font-size: 14px; line-height: 1.4; }
 
-    .comment-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .user-info {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .user-info i {
-      font-size: 24px;
-      color: #333;
-    }
-
-    .user-name {
-      font-weight: 700;
-      font-size: 15px;
-    }
-
-    .time {
-      font-size: 12px;
-      color: #777;
-    }
-
-    .like {
-      font-size: 18px;
-      color: #666;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      user-select: none;
-    }
-
-    .stars {
-      margin: 8px 0;
-      color: gold;
-      font-size: 16px;
-    }
-
-    .comment-text {
-      font-size: 14px;
-      line-height: 1.4;
-    }
-
-    /* Campo para comentar */
-    .comment-form {
-      background: #fff;
-      padding: 16px;
-      border-top: 2px solid #00a6e2;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .comment-form textarea {
-      width: 100%;
-      padding: 10px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      resize: none;
-      font-size: 14px;
-      font-family: 'Roboto', sans-serif;
-    }
-
-    .comment-form button {
-      align-self: flex-end;
-      background: #00a6e2;
-      color: #fff;
-      border: none;
-      padding: 10px 18px;
-      border-radius: 20px;
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .comment-form button:hover {
-      background: #008ec4;
-    }
+    .comment-form { background: #fff; padding: 16px; border-top: 2px solid #00a6e2; display: flex; flex-direction: column; gap: 12px; }
+    .comment-form textarea { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc; resize: none; font-size: 14px; font-family: 'Roboto', sans-serif; }
+    .comment-form button { align-self: flex-end; background: #00a6e2; color: #fff; border: none; padding: 10px 18px; border-radius: 20px; font-size: 14px; font-weight: 500; cursor: pointer; transition: 0.3s; }
+    .comment-form button:hover { background: #008ec4; }
   </style>
 </head>
 <body>
-  <!-- Cabeçalho -->
   <header>
     <div class="back-icon" onclick="window.history.back()">
       <i class="fas fa-arrow-left"></i>
@@ -156,177 +43,149 @@
   <!-- Título -->
   <div class="title">Comentários</div>
 
-   <!-- Único container para todos os comentários (fixos + novos) -->
-   <div id="comments-container">
-     <!-- Comentários fixos abaixo -->
-     <div class="comment-card" style="border: 2px solid #00a6e2;">
-       <div class="comment-header">
-         <div class="user-info">
-           <i class="fas fa-user-circle"></i>
-           <div>
-             <div class="user-name">ANTÔNIO CAVALCANTE</div>
-             <div class="time">1 MES ATRÁS</div>
-           </div>
-         </div>
-         <div class="like" onclick="toggleLike(this)">
-           <i class="far fa-heart"></i> <span>14</span>
-         </div>
-       </div>
-       <div class="stars">★★★★</div>
-       <div class="comment-text">
-         Gosto muito da estação da República, pelo elevador acessivel, porem tem bastante áreas estreitas.
-       </div>
-     </div>
- 
-     <div class="comment-card" style="border: 2px solid #00a6e2;">
-       <div class="comment-header">
-         <div class="user-info">
-           <i class="fas fa-user-circle"></i>
-           <div>
-             <div class="user-name">EDUARDO DOS SANTOS</div>
-             <div class="time">2 MESES ATRÁS ATRÁS</div>
-           </div>
-         </div>
-         <div class="like" onclick="toggleLike(this)">
-           <i class="far fa-heart"></i> <span>9</span>
-         </div>
-       </div>
-       <div class="stars">★★★</div>
-       <div class="comment-text">
-         Gosto do Terminal de são mateus  porque tem elevador e rampa nos lugares, isso ajuda muito.
-       </div>
-     </div>
- 
-     <div class="comment-card" style="border: 2px solid #00a6e2;">
-       <div class="comment-header">
-         <div class="user-info">
-           <i class="fas fa-user-circle"></i>
-           <div>
-             <div class="user-name">MARIA PEREIRA CUNHA</div>
-             <div class="time">4 MESES ATRÁS</div>
-           </div>
-         </div>
-         <div class="like" onclick="toggleLike(this)">
-           <i class="far fa-heart"></i> <span>19</span>
-         </div>
-       </div>
-       <div class="stars">★★★★★</div>
-       <div class="comment-text">
-         A estação Brás facilita bastante com seus elevadores, mas ainda falta orientação sonora para deficientes visuais.
-       </div>
-     </div>
- 
-     <div class="comment-card" style="border: 2px solid #00a6e2;">
-       <div class="comment-header">
-         <div class="user-info">
-           <i class="fas fa-user-circle"></i>
-           <div>
-             <div class="user-name">SARAH RODRIGUES PINTO</div>
-             <div class="time">4 MESES ATRÁS</div>
-           </div>
-         </div>
-         <div class="like" onclick="toggleLike(this)">
-           <i class="far fa-heart"></i> <span>2</span>
-         </div>
-       </div>
-       <div class="stars">★★</div>
-       <div class="comment-text">
-         Gosto da estação Vila Prudente por ser acessível, mas o caminho até a saída principal é bem longo e cansativo.
-       </div>
-     </div>
- 
-     <div class="comment-card" style="border: 2px solid #00a6e2;">
-       <div class="comment-header">
-         <div class="user-info">
-           <i class="fas fa-user-circle"></i>
-           <div>
-             <div class="user-name">MARCOS NASCIMENTO</div>
-             <div class="time">7 MESES ATRÁS</div>
-           </div>
-         </div>
-         <div class="like" onclick="toggleLike(this)">
-           <i class="far fa-heart"></i> <span>10</span>
-         </div>
-       </div>
-       <div class="stars">★★★★</div>
-       <div class="comment-text">
-         Uso a estação Barra Funda com frequência por conta do elevador, mas ela fica superlotada em horários de evento.
-       </div>
-     </div>
- 
-     <div class="comment-card" style="border: 2px solid #00a6e2;">
-       <div class="comment-header">
-         <div class="user-info">
-           <i class="fas fa-user-circle"></i>
-           <div>
-             <div class="user-name">ANONIMO2346</div>
-             <div class="time">1 ANO ATRÁS</div>
-           </div>
-         </div>
-         <div class="like" onclick="toggleLike(this)">
-           <i class="far fa-heart"></i> <span>7</span>
-         </div>
-       </div>
-       <div class="stars">★★★</div>
-       <div class="comment-text">
-         A acessibilidade na estação Santa Cruz me ajuda muito, só que em dias chuvosos, o piso fica escorregadio.
-       </div>
-     </div>
- 
-     <!-- Último comentário fixo -->
-     <div class="comment-card" style="border: 2px solid #00a6e2;">
-       <div class="comment-header">
-         <div class="user-info">
-           <i class="fas fa-user-circle"></i>
-           <div>
-             <div class="user-name">TEREZA DA CUNHA</div>
-             <div class="time">1 ANO ATRÁS</div>
-           </div>
-         </div>
-         <div class="like" onclick="toggleLike(this)">
-           <i class="far fa-heart"></i> <span>3</span>
-         </div>
-       </div>
-       <div class="stars">★★★★★</div>
-       <div class="comment-text">
-         Que legal que o app ajuda a encontrar rotas mais fáceis, sem muitas escadas!
-       </div>
-     </div>
-   </div>
+  <!-- Container de comentários -->
+  <div id="comments-container">
+    <!-- Comentários fixos -->
+    <div class="comment-card" style="border: 2px solid #00a6e2;">
+      <div class="comment-header">
+        <div class="user-info">
+          <i class="fas fa-user-circle"></i>
+          <div>
+            <div class="user-name">ANTÔNIO CAVALCANTE</div>
+            <div class="time">1 MES ATRÁS</div>
+          </div>
+        </div>
+        <div class="like" onclick="toggleLike(this)">
+          <i class="far fa-heart"></i> <span>14</span>
+        </div>
+      </div>
+      <div class="stars">★★★★</div>
+      <div class="comment-text">
+        Gosto muito da estação da República, pelo elevador acessível, porém tem bastante áreas estreitas.
+      </div>
+    </div>
 
-    <!-- Os outros comentários fixos permanecem exatamente iguais ao seu código -->
-    <!-- ... -->
+    <div class="comment-card" style="border: 2px solid #00a6e2;">
+      <div class="comment-header">
+        <div class="user-info">
+          <i class="fas fa-user-circle"></i>
+          <div>
+            <div class="user-name">EDUARDO DOS SANTOS</div>
+            <div class="time">2 MESES ATRÁS</div>
+          </div>
+        </div>
+        <div class="like" onclick="toggleLike(this)">
+          <i class="far fa-heart"></i> <span>9</span>
+        </div>
+      </div>
+      <div class="stars">★★★</div>
+      <div class="comment-text">
+        Gosto do Terminal de São Mateus porque tem elevador e rampa nos lugares, isso ajuda muito.
+      </div>
+    </div>
 
+    <div class="comment-card" style="border: 2px solid #00a6e2;">
+      <div class="comment-header">
+        <div class="user-info">
+          <i class="fas fa-user-circle"></i>
+          <div>
+            <div class="user-name">MARIA PEREIRA CUNHA</div>
+            <div class="time">4 MESES ATRÁS</div>
+          </div>
+        </div>
+        <div class="like" onclick="toggleLike(this)">
+          <i class="far fa-heart"></i> <span>19</span>
+        </div>
+      </div>
+      <div class="stars">★★★★★</div>
+      <div class="comment-text">
+        A estação Brás facilita bastante com seus elevadores, mas ainda falta orientação sonora para deficientes visuais.
+      </div>
+    </div>
+
+    <div class="comment-card" style="border: 2px solid #00a6e2;">
+      <div class="comment-header">
+        <div class="user-info">
+          <i class="fas fa-user-circle"></i>
+          <div>
+            <div class="user-name">SARAH RODRIGUES PINTO</div>
+            <div class="time">4 MESES ATRÁS</div>
+          </div>
+        </div>
+        <div class="like" onclick="toggleLike(this)">
+          <i class="far fa-heart"></i> <span>2</span>
+        </div>
+      </div>
+      <div class="stars">★★</div>
+      <div class="comment-text">
+        Gosto da estação Vila Prudente por ser acessível, mas o caminho até a saída principal é bem longo e cansativo.
+      </div>
+    </div>
+
+    <div class="comment-card" style="border: 2px solid #00a6e2;">
+      <div class="comment-header">
+        <div class="user-info">
+          <i class="fas fa-user-circle"></i>
+          <div>
+            <div class="user-name">MARCOS NASCIMENTO</div>
+            <div class="time">7 MESES ATRÁS</div>
+          </div>
+        </div>
+        <div class="like" onclick="toggleLike(this)">
+          <i class="far fa-heart"></i> <span>10</span>
+        </div>
+      </div>
+      <div class="stars">★★★★</div>
+      <div class="comment-text">
+        Uso a estação Barra Funda com frequência por conta do elevador, mas ela fica superlotada em horários de evento.
+      </div>
+    </div>
+
+    <div class="comment-card" style="border: 2px solid #00a6e2;">
+      <div class="comment-header">
+        <div class="user-info">
+          <i class="fas fa-user-circle"></i>
+          <div>
+            <div class="user-name">ANONIMO2346</div>
+            <div class="time">1 ANO ATRÁS</div>
+          </div>
+        </div>
+        <div class="like" onclick="toggleLike(this)">
+          <i class="far fa-heart"></i> <span>7</span>
+        </div>
+      </div>
+      <div class="stars">★★★</div>
+      <div class="comment-text">
+        A acessibilidade na estação Santa Cruz me ajuda muito, só que em dias chuvosos, o piso fica escorregadio.
+      </div>
+    </div>
   </div>
 
-  <!-- Campo para enviar comentário -->
+  <!-- Campo para adicionar comentários do usuário -->
   <div class="comment-form">
     <textarea id="comment-input" rows="3" placeholder="Escreva seu comentário..."></textarea>
     <button onclick="addComment()">Enviar</button>
   </div>
 
   <script>
-    // Função para curtir comentário
+    // Curtir comentário
     function toggleLike(element) {
       const icon = element.querySelector("i");
       const count = element.querySelector("span");
       let num = parseInt(count.textContent);
-
       if (icon.classList.contains("far")) {
-        icon.classList.remove("far");
-        icon.classList.add("fas");
+        icon.classList.replace("far", "fas");
         icon.style.color = "red";
         num++;
       } else {
-        icon.classList.remove("fas");
-        icon.classList.add("far");
+        icon.classList.replace("fas", "far");
         icon.style.color = "#666";
         num--;
       }
       count.textContent = num;
     }
 
-    // Função para criar o elemento HTML de comentário novo
+    // Criar comentário dinâmico do usuário
     function criarComentarioUsuario(texto) {
       const div = document.createElement("div");
       div.className = "comment-card";
@@ -344,7 +203,7 @@
             <div class="like" onclick="toggleLike(this)">
               <i class="far fa-heart"></i> <span>0</span>
             </div>
-            <div class="delete" onclick="this.closest('.comment-card').remove()" title="Excluir comentário">
+            <div class="delete" onclick="deletarComentario(this, '${texto}')" title="Excluir comentário">
               <i class="fas fa-trash-alt" style="color: #888; cursor: pointer;"></i>
             </div>
           </div>
@@ -355,45 +214,51 @@
       return div;
     }
 
-    // Função para salvar comentários (mantida para localStorage, mas não mexeremos)
+    // LocalStorage
     function salvarComentariosUsuario(comentarios) {
       localStorage.setItem("comentariosUsuario", JSON.stringify(comentarios));
     }
-
     function pegarComentariosUsuario() {
       const dados = localStorage.getItem("comentariosUsuario");
       return dados ? JSON.parse(dados) : [];
     }
 
+    // Mostrar comentários salvos
     function mostrarComentariosUsuario() {
       const container = document.getElementById("comments-container");
       const comentarios = pegarComentariosUsuario();
-
       comentarios.forEach(texto => {
         const comentarioElement = criarComentarioUsuario(texto);
         container.insertBefore(comentarioElement, container.firstChild);
       });
     }
 
+    // Adicionar comentário
     function addComment() {
       const input = document.getElementById("comment-input");
       const texto = input.value.trim();
-
-      if (texto === "") {
-        alert("Por favor, escreva um comentário.");
-        return;
-      }
+      if (!texto) { alert("Por favor, escreva um comentário."); return; }
 
       const container = document.getElementById("comments-container");
       const novoComentario = criarComentarioUsuario(texto);
       container.insertBefore(novoComentario, container.firstChild);
 
+      const comentarios = pegarComentariosUsuario();
+      comentarios.unshift(texto);
+      salvarComentariosUsuario(comentarios);
+
       input.value = "";
     }
 
-    window.onload = function() {
-      mostrarComentariosUsuario();
-    };
+    // Deletar comentário
+    function deletarComentario(elemento, texto) {
+      elemento.closest('.comment-card').remove();
+      let comentarios = pegarComentariosUsuario();
+      comentarios = comentarios.filter(c => c !== texto);
+      salvarComentariosUsuario(comentarios);
+    }
+
+    window.onload = mostrarComentariosUsuario;
   </script>
 </body>
 </html>
