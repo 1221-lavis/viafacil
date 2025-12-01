@@ -8,13 +8,15 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      background: #d1e9f5;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      font-family: sans-serif;
-    }
+  background: url('imagem/fundo.png') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  animation: fadeIn 2s ease-out;
+  background-color: #3498db;
+}
 
     .box {
       background: rgb(255, 255, 255);
@@ -57,7 +59,7 @@
     }
 
     #btn-login {
-      background: #00a6e2;
+      background: #3498db;
       color: white;
       border-radius: 30px;
       font-weight: bold;
