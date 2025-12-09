@@ -40,22 +40,21 @@
     <h2>Via Fácil</h2>
   </header>
 
-  <!-- Título -->
   <div class="title">Comentários</div>
 
-  <!-- Container de comentários -->
   <div id="comments-container">
-    <!-- Comentários fixos -->
+
+    <!-- Comentário 1 -->
     <div class="comment-card" style="border: 2px solid #00a6e2;">
       <div class="comment-header">
         <div class="user-info">
           <i class="fas fa-user-circle"></i>
           <div>
             <div class="user-name">ANTÔNIO CAVALCANTE</div>
-            <div class="time">1 MES ATRÁS</div>
+            <div class="time">1 MÊS ATRÁS</div>
           </div>
         </div>
-        <div class="like" onclick="toggleLike(this)">
+        <div class="like" data-id="1" onclick="toggleLike(this)">
           <i class="far fa-heart"></i> <span>14</span>
         </div>
       </div>
@@ -65,6 +64,7 @@
       </div>
     </div>
 
+    <!-- Comentário 2 -->
     <div class="comment-card" style="border: 2px solid #00a6e2;">
       <div class="comment-header">
         <div class="user-info">
@@ -74,7 +74,7 @@
             <div class="time">2 MESES ATRÁS</div>
           </div>
         </div>
-        <div class="like" onclick="toggleLike(this)">
+        <div class="like" data-id="2" onclick="toggleLike(this)">
           <i class="far fa-heart"></i> <span>9</span>
         </div>
       </div>
@@ -84,6 +84,7 @@
       </div>
     </div>
 
+    <!-- Comentário 3 -->
     <div class="comment-card" style="border: 2px solid #00a6e2;">
       <div class="comment-header">
         <div class="user-info">
@@ -93,7 +94,7 @@
             <div class="time">4 MESES ATRÁS</div>
           </div>
         </div>
-        <div class="like" onclick="toggleLike(this)">
+        <div class="like" data-id="3" onclick="toggleLike(this)">
           <i class="far fa-heart"></i> <span>19</span>
         </div>
       </div>
@@ -103,6 +104,7 @@
       </div>
     </div>
 
+    <!-- Comentário 4 -->
     <div class="comment-card" style="border: 2px solid #00a6e2;">
       <div class="comment-header">
         <div class="user-info">
@@ -112,7 +114,7 @@
             <div class="time">4 MESES ATRÁS</div>
           </div>
         </div>
-        <div class="like" onclick="toggleLike(this)">
+        <div class="like" data-id="4" onclick="toggleLike(this)">
           <i class="far fa-heart"></i> <span>2</span>
         </div>
       </div>
@@ -122,6 +124,7 @@
       </div>
     </div>
 
+    <!-- Comentário 5 -->
     <div class="comment-card" style="border: 2px solid #00a6e2;">
       <div class="comment-header">
         <div class="user-info">
@@ -131,7 +134,7 @@
             <div class="time">7 MESES ATRÁS</div>
           </div>
         </div>
-        <div class="like" onclick="toggleLike(this)">
+        <div class="like" data-id="5" onclick="toggleLike(this)">
           <i class="far fa-heart"></i> <span>10</span>
         </div>
       </div>
@@ -141,6 +144,7 @@
       </div>
     </div>
 
+    <!-- Comentário 6 -->
     <div class="comment-card" style="border: 2px solid #00a6e2;">
       <div class="comment-header">
         <div class="user-info">
@@ -150,7 +154,7 @@
             <div class="time">1 ANO ATRÁS</div>
           </div>
         </div>
-        <div class="like" onclick="toggleLike(this)">
+        <div class="like" data-id="6" onclick="toggleLike(this)">
           <i class="far fa-heart"></i> <span>7</span>
         </div>
       </div>
@@ -159,37 +163,71 @@
         A acessibilidade na estação Santa Cruz me ajuda muito, só que em dias chuvosos, o piso fica escorregadio.
       </div>
     </div>
+
   </div>
 
-  <!-- Campo para adicionar comentários do usuário -->
+  <!-- Campo para adicionar comentários -->
   <div class="comment-form">
     <textarea id="comment-input" rows="3" placeholder="Escreva seu comentário..."></textarea>
     <button onclick="addComment()">Enviar</button>
   </div>
 
   <script>
-    // Curtir comentário
+    /* =====================================================
+       CURTIDAS (SALVAR + RESTAURAR)
+    ===================================================== */
+
     function toggleLike(element) {
       const icon = element.querySelector("i");
       const count = element.querySelector("span");
+      const commentId = element.getAttribute("data-id");
+
+      let likesSalvos = JSON.parse(localStorage.getItem("likes")) || {};
       let num = parseInt(count.textContent);
+
       if (icon.classList.contains("far")) {
         icon.classList.replace("far", "fas");
         icon.style.color = "red";
         num++;
+        likesSalvos[commentId] = { curtido: true, quantidade: num };
       } else {
         icon.classList.replace("fas", "far");
         icon.style.color = "#666";
         num--;
+        likesSalvos[commentId] = { curtido: false, quantidade: num };
       }
+
       count.textContent = num;
+      localStorage.setItem("likes", JSON.stringify(likesSalvos));
     }
 
-    // Criar comentário dinâmico do usuário
-    function criarComentarioUsuario(texto) {
+    function restaurarLikes() {
+      const likesSalvos = JSON.parse(localStorage.getItem("likes")) || {};
+
+      document.querySelectorAll(".like").forEach(likeBtn => {
+        const id = likeBtn.getAttribute("data-id");
+        const icon = likeBtn.querySelector("i");
+        const count = likeBtn.querySelector("span");
+
+        if (likesSalvos[id]) {
+          count.textContent = likesSalvos[id].quantidade;
+          if (likesSalvos[id].curtido) {
+            icon.classList.replace("far", "fas");
+            icon.style.color = "red";
+          }
+        }
+      });
+    }
+
+    /* =====================================================
+       COMENTÁRIOS DO USUÁRIO
+    ===================================================== */
+
+    function criarComentarioUsuario(texto, id) {
       const div = document.createElement("div");
       div.className = "comment-card";
       div.style.border = "2px solid #00a6e2";
+
       div.innerHTML = `
         <div class="comment-header">
           <div class="user-info">
@@ -200,10 +238,10 @@
             </div>
           </div>
           <div style="display: flex; gap: 10px; align-items: center;">
-            <div class="like" onclick="toggleLike(this)">
+            <div class="like" data-id="${id}" onclick="toggleLike(this)">
               <i class="far fa-heart"></i> <span>0</span>
             </div>
-            <div class="delete" onclick="deletarComentario(this, '${texto}')" title="Excluir comentário">
+            <div class="delete" onclick="deletarComentario(this, '${texto}', '${id}')" title="Excluir comentário">
               <i class="fas fa-trash-alt" style="color: #888; cursor: pointer;"></i>
             </div>
           </div>
@@ -214,52 +252,58 @@
       return div;
     }
 
-    // LocalStorage
     function salvarComentariosUsuario(comentarios) {
       localStorage.setItem("comentariosUsuario", JSON.stringify(comentarios));
     }
+
     function pegarComentariosUsuario() {
-      const dados = localStorage.getItem("comentariosUsuario");
-      return dados ? JSON.parse(dados) : [];
+      return JSON.parse(localStorage.getItem("comentariosUsuario")) || [];
     }
 
-    // Mostrar comentários salvos
     function mostrarComentariosUsuario() {
       const container = document.getElementById("comments-container");
-      const comentarios = pegarComentariosUsuario();
-      comentarios.forEach(texto => {
-        const comentarioElement = criarComentarioUsuario(texto);
+      pegarComentariosUsuario().forEach(obj => {
+        const comentarioElement = criarComentarioUsuario(obj.texto, obj.id);
         container.insertBefore(comentarioElement, container.firstChild);
       });
     }
 
-    // Adicionar comentário
     function addComment() {
       const input = document.getElementById("comment-input");
       const texto = input.value.trim();
-      if (!texto) { alert("Por favor, escreva um comentário."); return; }
-
-      const container = document.getElementById("comments-container");
-      const novoComentario = criarComentarioUsuario(texto);
-      container.insertBefore(novoComentario, container.firstChild);
+      if (!texto) {
+        alert("Por favor, escreva um comentário.");
+        return;
+      }
 
       const comentarios = pegarComentariosUsuario();
-      comentarios.unshift(texto);
+      const novoId = Date.now().toString();
+
+      comentarios.unshift({ texto, id: novoId });
       salvarComentariosUsuario(comentarios);
+
+      const container = document.getElementById("comments-container");
+      const elemento = criarComentarioUsuario(texto, novoId);
+      container.insertBefore(elemento, container.firstChild);
 
       input.value = "";
     }
 
-    // Deletar comentário
-    function deletarComentario(elemento, texto) {
+    function deletarComentario(elemento, texto, id) {
       elemento.closest('.comment-card').remove();
-      let comentarios = pegarComentariosUsuario();
-      comentarios = comentarios.filter(c => c !== texto);
+
+      let comentarios = pegarComentariosUsuario().filter(c => c.id !== id);
       salvarComentariosUsuario(comentarios);
+
+      let likes = JSON.parse(localStorage.getItem("likes")) || {};
+      delete likes[id];
+      localStorage.setItem("likes", JSON.stringify(likes));
     }
 
-    window.onload = mostrarComentariosUsuario;
+    window.onload = function() {
+      mostrarComentariosUsuario();
+      restaurarLikes();
+    };
   </script>
 </body>
 </html>
-
